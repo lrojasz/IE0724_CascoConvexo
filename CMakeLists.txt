@@ -11,15 +11,16 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Incluir headers (directorio include)
-include_directories(include)
- 
+include_directories("../include")
+
 # Usar GLOB para añadir cualquier .cpp
 file(GLOB SOURCES "src/*.cxx")
  
 # Añadir ejecutable
 add_executable(CascoConvexo ${SOURCES})
 
-# Incluir directorios
-#target_include_directories(CascoConvexo PUBLIC
-#                           "${PROJECT_BINARY_DIR}"
- #                          )
+# Incluir CGAL
+find_package(CGAL)
+target_link_libraries(CascoConvexo CGAL::CGAL) 
+
+
