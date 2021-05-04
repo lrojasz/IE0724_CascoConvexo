@@ -1,6 +1,9 @@
-# IE0724_CascoConvexo
+# Proyecto 1: CascoConvexo
+#### Escuela de Ingeniería Eléctrica
+#### IE0724 - Laboratorio de Programación
+#### Estudiantes: Laura Rojas Zumbado y Jose Pablo Camacho
 
-# Instalación
+## Instalación
 ### Primero, se debe crear un repositorio con el código correspondiente a este repositorio. Para hacerlo, se recomienda utilizar la instrucción git clone.
 
 `git clone git@github.com:lrojasz/IE0724_CascoConvexo.git`
@@ -13,11 +16,12 @@
 
 `cmake . -Bbuild`
 
-# Corriendo el programa
+## Corriendo el programa
 
 ### Este programa se debe correr dentro de la carpeta build. Por lo tanto, se cambia de directorio antes de correr la instrucción make.
 
 `cd build
+
 make`
 
 ### Habiendo generado el ejecutable, se corre el programa utilizando la siguiente instrucción:
