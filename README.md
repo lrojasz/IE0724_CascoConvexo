@@ -20,9 +20,9 @@
 
 ### Este programa se debe correr dentro de la carpeta build. Por lo tanto, se cambia de directorio antes de correr la instrucción make.
 
-`cd build
+`cd build`
 
-make`
+`make`
 
 ### Habiendo generado el ejecutable, se corre el programa utilizando la siguiente instrucción:
 
@@ -33,7 +33,7 @@ make`
 
 # Lista de cosas que faltan (debug, eliminar después):
 ### README y código documentado (doxygen?) 10%
-### CMake 20%
+### CMake 20% (listo)
 ### Código 60%
-leer csv, parametros a libreria, gráfico, pruebas, etc.
+leer csv (falta ingreso de usuario, lee archivo correctamente), parametros a libreria, gráfico, pruebas, etc.
 ### Video 10%
