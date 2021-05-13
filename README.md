@@ -8,9 +8,15 @@
 
 `git clone git@github.com:lrojasz/IE0724_CascoConvexo.git`
 
-### Segundo, es necesario tener instalado cmake. Para Ubunto, se escribe lo siguiente en la terminal:
+### Segundo, es necesario tener instalado cmake, CGAL, OpenGL y GLUT. Para Ubunto, se escribe lo siguiente en la terminal:
 
-`sudo apt install cmake`
+`sudo apt-get install cmake`
+
+`sudo apt-get install libcgal-dev`
+
+`sudo apt-get install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev`
+
+`sudo apt-get install freeglut3 freeglut3-dev libglew-dev`
 
 ### Tercero, se hace el directorio build, de donde se va a correr este programa. Esto se hacer utilizando la siguiente instrucción en la _carpeta principal_ de este repositorio.
 
@@ -26,14 +32,10 @@
 
 ### Habiendo generado el ejecutable, se corre el programa utilizando la siguiente instrucción:
 
-`./CascoConvexo`
+`./CascoConvexo <archivo deseado>`
 
+## Graficación
 
+### Debido a que CMake, OpenGL y GLUT no funcionan correctamente para el ploteo de archivos, se grafica el resultado utilizando los archivos CSV encontrados en la carpeta de plot.
 
-
-# Lista de cosas que faltan (debug, eliminar después):
-### README y código documentado (doxygen?) 10%
-### CMake 20% (listo)
-### Código 60%
-leer csv (falta ingreso de usuario, lee archivo correctamente), parametros a libreria, gráfico, pruebas, etc.
-### Video 10%
+` insertar g++ `
