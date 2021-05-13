@@ -8,7 +8,7 @@
 #include "../build/ccConfig.h"
 
 // DEBUG ON/OFF
-bool DEBUG = true;
+bool DEBUG = false;
 
 /**
  * @function MAIN
@@ -21,6 +21,17 @@ int main(int argc, char* argv[]) {
 	double pt[] = {0,0};
 	vector<Point_2> puntos;
 	vector<string> etiquetas;
+
+	// Revisar DEBUG flag
+	if(argc > 2){
+		if(string(argv[2]) == "DEBUG"){
+			DEBUG = true;
+		}
+	}
+	else if(argc < 2){
+		cout << "\tError: \tSe necesita ingresar un archivo por línea de comando. \nFormato normal: \n\t./CascoConvexo <archivo>\nModo debug: \n\t./CascoConvexo <archivo> DEBUG\n" << endl;
+		exit(6);
+	}
     
 	// Obtener archivo de la consola.
 	string CSV = argv[1];

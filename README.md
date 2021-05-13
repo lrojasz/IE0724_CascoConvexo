@@ -24,15 +24,21 @@
 
 ## Corriendo el programa
 
+Nótese que si el programa encuentra error en cualquier momento, se imprime el error correspondiente y el programa para de ejecutar.
+
 ### Este programa se debe correr dentro de la carpeta build. Por lo tanto, se cambia de directorio antes de correr la instrucción make.
 
 `cd build`
 
 `make`
 
-### Habiendo generado el ejecutable, se corre el programa utilizando la siguiente instrucción:
+### Habiendo generado el ejecutable, se corre el programa utilizando la siguiente instrucción en la carpeta build:
 
 `./CascoConvexo <archivo deseado>`
+
+### Si se desea correr el programa en modo DEBUG se debe pasar un parámetro adicional, como se demuestra en la siguiente instrucción.
+
+`./CascoConvexo <archivo deseado> DEBUG`
 
 ## Graficación
 
