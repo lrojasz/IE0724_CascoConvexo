@@ -99,3 +99,4 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 	// End of function, void return
 	return;
 }
+

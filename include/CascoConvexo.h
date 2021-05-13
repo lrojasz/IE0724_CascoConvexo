@@ -5,6 +5,6 @@
  * @function MAIN
  * @brief Esta función es la función principal.
  */
-int main();
+int main(int argc, char* argv[]);
 
 #endif // CASCOCONVEXO_H_

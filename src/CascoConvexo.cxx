@@ -1,6 +1,7 @@
 // Includes
 #include "../include/General.h"
 #include "../include/getPoint.h"
+#include "../include/handleCSV.h"
 #include "../include/getPlot.h"
 #include "../include/editPlot.h"
 #include "../include/CascoConvexo.h"
@@ -13,10 +14,7 @@ bool DEBUG = true;
  * @function MAIN
  * @brief Esta función es la función principal.
  */
-
-
-
-int main() {
+int main(int argc, char* argv[]) {
 	// Declarar variables locales
 	double x,y = 0;
 	string line;
@@ -24,8 +22,15 @@ int main() {
 	vector<Point_2> puntos;
 	vector<string> etiquetas;
     
-    // Abrir archivo csv
-    ifstream archivo ("1.txt");
+	// Obtener archivo de la consola.
+	string CSV = argv[1];
+	if(DEBUG){
+		cout << "Archivo CSV indicado: " << CSV << endl;
+	}
+
+	// Revisar existencia del archivo, y abrir si es válido.
+	archivoExiste(CSV,DEBUG);
+    ifstream archivo (CSV);
 	
 	// Leer archivo
     while ( getline (archivo,line) ) {
@@ -47,7 +52,6 @@ int main() {
 	vector<std::size_t> indices(puntos.size()), out;
   	iota(indices.begin(), indices.end(),0);
 
-	/*EDITANDO*/
 	//Crea vector con puntos parte del poligono
 	vector<int> poligono;
 
@@ -60,7 +64,7 @@ int main() {
 			poligono.push_back(i);
   		}
   	}
-	  /**	EDITANDO	**/
+	
 	//Copia vector de puntos de poligono
 	int cantpoligono = poligono.size();
 	int coordenadaspoligono[cantpoligono];
@@ -71,16 +75,19 @@ int main() {
 	struct coordinates cor[cantcoordenadas];
 
 	//Lleva puntos a graficar a la estructura
- 	for (std::size_t i = 0; i < puntos.size(); i++) {
+ 	for (size_t i = 0; i < puntos.size(); i++) {
 		cor[i].x = puntos[i].hx();
 		cor[i].y = puntos[i].hy();
   	}
 	string str[2];
     str[0] = "label";
     str[1] = "label";
+
+	// Guardar resultados en nuevo archivo (para ploteo g++)
+	printCSV (puntos, poligono, DEBUG);
 	
+	// Ploteo no corre con CMAKE, pero se implementa para comprobar NO-FUNCIONAMIENTL
 	getPlot(cantcoordenadas, cor, coordenadaspoligono, str, 700,700);
-  	
 
 	// Fin de programa
     return 0;
