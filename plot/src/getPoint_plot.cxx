@@ -1,11 +1,11 @@
-#include "../include/General.h"
-#include "../include/getPoint.h"
+#include "../include/General_plot.h"
+#include "../include/getPoint_plot.h"
 
 /*
  * @function getPoint
  * @brief Esta función extrae los puntos de un string que se pasa por parámero. Estos datos se escriben en el vector puntos. También se revisa la validez de estos puntos.
  */
-void getPoint(string coordinates, double* puntos, bool DEBUG){
+void getPoint_plot(string coordinates, double* puntos, bool DEBUG){
 	// Declarar variables locales
 	int count;
 	int amountCoordinates = 1;

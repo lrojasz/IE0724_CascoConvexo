@@ -1,5 +1,5 @@
-#ifndef CASCOCONVEXO_H_
-#define CASCOCONVEXO_H_
+#ifndef CASCOCONVEXOPLOT_H_
+#define CASCOCONVEXOPLOT_H_
 
 /**
  * @function MAIN
@@ -7,4 +7,4 @@
  */
 int main(int argc, char* argv[]);
 
-#endif // CASCOCONVEXO_H_
+#endif // CASCOCONVEXOPLOT_H_

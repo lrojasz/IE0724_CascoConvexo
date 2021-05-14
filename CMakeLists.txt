@@ -20,7 +20,22 @@ file(GLOB SOURCES "src/*.cxx")
 add_executable(CascoConvexo ${SOURCES})
 
 # Incluir CGAL
-find_package(CGAL)
+find_package(CGAL REQUIRED)
 target_link_libraries(CascoConvexo CGAL::CGAL) 
 
+#Incluir OPENGL
+find_package(OpenGL REQUIRED)
+target_link_libraries(CascoConvexo ${LIBS})
 
+#Incluir OPENGL/GLUT
+find_package(GLUT REQUIRED)
+#find_package(FREEGLUT REQUIRED)
+include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
+#target_link_libraries(CascoConvexo ${LIBS})
+
+#find_library( GLUT_glut_LIBRARY NAMES glut freeglut
+#    PATHS
+#    ${OPENGL_LIBRARY_DIR}
+#    ${GLUT_ROOT_PATH}/Release
+#    )
+target_link_libraries(CascoConvexo ${GLUT_LIBRARIES} ${OPENGL_LIBRARY})
