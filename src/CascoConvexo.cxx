@@ -70,11 +70,14 @@ int main(int argc, char* argv[]) {
   	CGAL::convex_hull_2(indices.begin(), indices.end(), back_inserter(out),Convex_hull_traits_2(CGAL::make_property_map(puntos)));  	
   	if (DEBUG){
   		cout << endl << "Puntos externos:" << endl;
-  		for(size_t i : out){
-    		cout << "points[" << i << "] = " << puntos[i] << endl;
-			poligono.push_back(i);
-  		}
-  	}
+	}
+	
+  	for(size_t i : out){
+		if(DEBUG){
+    	cout << "points[" << i << "] = " << puntos[i] << endl;
+		}
+		poligono.push_back(i);
+	}
 	
 	//Copia vector de puntos de poligono
 	int cantpoligono = poligono.size();

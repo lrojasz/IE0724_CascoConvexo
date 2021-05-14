@@ -42,6 +42,10 @@ Nótese que si el programa encuentra error en cualquier momento, se imprime el e
 
 ## Graficación
 
-### Debido a que CMake, OpenGL y GLUT no funcionan correctamente para el ploteo de archivos, se grafica el resultado utilizando los archivos CSV encontrados en la carpeta de plot.
+### Debido a que CMake, OpenGL y GLUT no funcionan correctamente para el ploteo de archivos, se grafica el resultado utilizando los archivos CSV encontrados en la carpeta de plot. Se corre la siguiente instruccion desde la carpeta plot/src.
 
-` insertar g++ `
+` g++ -o plot CascoConvexoPlot_plot.cxx -lGL -lGLU -lglut `
+
+` ./plot `
+
+### Nota: Es importante asegurarse que exista la carpeta datos dentro de ploteo para la correcta ejecución del programa.

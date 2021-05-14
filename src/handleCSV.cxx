@@ -27,7 +27,7 @@ void archivoExiste (const string& name, bool DEBUG){
 void printCSV (vector<Point_2> puntos, vector<int> poligono, bool DEBUG){
 
     // Crear archivo de puntos.
-    string archivo = "../plot/datosPloteo.csv";
+    string archivo = "../plot/datos/datosPloteo.csv";
     ofstream CSV (archivo);
     if(DEBUG){
         cout << "\nEscribiendo a datosPloteo:" << endl;
@@ -45,7 +45,7 @@ void printCSV (vector<Point_2> puntos, vector<int> poligono, bool DEBUG){
     CSV.close();
 
     // Crear archivo de poligono.
-    string archivo2 = "../plot/datosPoligono.csv";
+    string archivo2 = "../plot/datos/datosPoligono.csv";
     ofstream CSV2 (archivo2);
     if(DEBUG){
         cout << "\nEscribiendo a datosPoligono:" << endl;
