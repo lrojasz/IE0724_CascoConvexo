@@ -1,8 +1,8 @@
 # Construya esta imágen con:
-# docker build --tag ie-0724/cascoconvexo:0.0.4 .
+# docker build --tag ie-0724/cascoconvexo:0.0.5 .
 
 # Corra esta imágen con:
-# docker run -ti ie-0724/cascoconvexo:0.0.4
+# docker run -ti ie-0724/cascoconvexo:0.0.5
 
 # Definimos OS base
 FROM ubuntu:20.04
@@ -25,7 +25,14 @@ RUN apt-get update \
     && apt-get --yes --no-install-recommends install gcc \
     && apt-get --yes --no-install-recommends install libcgal-dev \
     && apt-get --yes --no-install-recommends install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev \
-    && apt-get --yes --no-install-recommends install freeglut3 freeglut3-dev libglew-dev 
+    && apt-get --yes --no-install-recommends install freeglut3 freeglut3-dev libglew-dev \
+    && apt-get --yes --no-install-recommends install libgtest-dev
+
+# RUN cd /usr/src/gtest \
+#     && cmake CMakeLists.txt 
+# 
+# RUN cd /usr/src/gtest \
+#     && make
 
 # Crear carpeta del proyecto
 RUN mkdir -p /usr/src/CascoConvexo
@@ -37,14 +44,6 @@ COPY plot /usr/src/CascoConvexo/plot
 COPY test /usr/src/CascoConvexo/test
 COPY CMakeLists.txt /usr/src/CascoConvexo/CMakeLists.txt
 COPY ccConfig.h.in /usr/src/CascoConvexo/ccConfig.h.in
-
-# Crear carpeta build para src
-RUN cd /usr/src/CascoConvexo \
-    && cmake -Bbuild . 
-
-# Crear ejecutable de CascoConvexo
-RUN cd /usr/src/CascoConvexo/build \
-    && make 
 
 # Crear carpeta build para GTest
 RUN cd /usr/src/CascoConvexo/test \
