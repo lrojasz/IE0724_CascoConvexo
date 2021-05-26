@@ -17,7 +17,7 @@ typedef CGAL::Convex_hull_traits_adapter_2<K,
  * @function archivoExiste
  * @brief Esta función determina la existencia de el archivo de prueba
  */
-void archivoExiste (const string& name, bool DEBUG);
+int archivoExiste (const string& name, bool DEBUG);
 
 /*
  * @function printCSV

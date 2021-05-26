@@ -1,11 +1,12 @@
 #include "../include/General.h"
+#include "../include/handleCSV.h"
 #include "../include/getPoint.h"
 
 /*
  * @function getPoint
  * @brief Esta función extrae los puntos de un string que se pasa por parámero. Estos datos se escriben en el vector puntos. También se revisa la validez de estos puntos.
  */
-void getPoint(string coordinates, double* puntos, bool DEBUG){
+int getPoint(string coordinates, double* puntos, bool DEBUG){
 	// Declarar variables locales
 	int count;
 	int amountCoordinates = 1;
@@ -31,7 +32,7 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 					cout << "Cantidad de puntos decimales: " << amountPoints << endl;
 				}
 				cout << "\tError: \tUn número flotante no puede tener más de un punto decimal." << endl;
-				exit(3);
+				return (-1);
 			}
 			x = x + *it;
 		}
@@ -42,7 +43,7 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 					cout << "Cantidad de puntos decimales: " << amountPoints << endl;
 				}
 				cout << "\tError: \tUn número flotante no puede tener más de un punto decimal." << endl;
-				exit(3);
+				return (-1);
 			}
 			y = y + *it;
 		}
@@ -54,7 +55,7 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 					cout << "Cantidad de negativos: " << amountNegs << endl;
 				}
 				cout << "\tError: \tNo se permite ingresar más de un signo negativo por número." << endl;
-				exit(3);
+				return (-1);
 			}
 			x = x + *it;
 		}
@@ -65,7 +66,7 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 					cout << "Cantidad de negativos: " << amountNegs << endl;
 				}
 				cout << "\tError: \tNo se permite ingresar más de un signo negativo por número." << endl;
-				exit(3);
+				return (-1);
 			}
 			y = y + *it;
 		}
@@ -83,7 +84,7 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 			cout << "Cantidad de coordenadas: " << amountCoordinates << endl;
 		}
 		cout << "\tError: \tNo se ingresó una coordenada válida de tipo x,y" << endl;
-		exit(4);
+		return (-1);
 	}
 	
 	// Se revisó todo el string. Actualizar puntos.
@@ -97,6 +98,50 @@ void getPoint(string coordinates, double* puntos, bool DEBUG){
 	}
 	
 	// End of function, void return
-	return;
+	return 1;
 }
 
+/*
+ * @function leerArchivo
+ * @brief Esta función lee el archivo y retorna si se lee correctamente.
+ */
+int leerArchivo(string file, vector <Point_2>* puntos, vector <string>* etiquetas,bool DEBUG){
+
+	// Declaración de variables locales.
+	int retorno = 0;
+	string line;
+	double pt[] = {0,0};
+
+	// Revisar existencia del archivo, y abrir si es válido.
+	retorno = archivoExiste(file,DEBUG);
+    
+	// Revisar si el archivo existe, si no existe retorno -1
+    if (retorno == -1){
+		return (-1);
+	}
+	
+	ifstream archivo (file);
+
+	// Leer archivo
+    while ( getline (archivo,line) ) {
+    	// Imprimir línea cuando se está depurando
+    	if(DEBUG){
+      		cout << "\nLínea: " << line << endl;
+      	}
+      	// Obtener punto
+      	retorno = getPoint(line,pt,DEBUG);
+
+		// Si recibimos error, retorno -1.
+      	if (retorno == -1){
+			return (-1);
+		}
+		// Subir puntos a vector
+      	(*puntos).push_back(Point_2(pt[0],pt[1]));
+		(*etiquetas).push_back("(" + line + ")");
+    }
+    
+    // Cerrar archivo
+    archivo.close();
+
+	return 1;
+}

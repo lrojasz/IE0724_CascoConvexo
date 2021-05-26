@@ -6,22 +6,25 @@
 #include "../include/editPlot.h"
 #include "../include/CascoConvexo.h"
 #include "../build/ccConfig.h"
+#include "gtest/gtest.h"
 
 // DEBUG ON/OFF
 bool DEBUG = false;
 
 /**
- * @function MAIN
- * @brief Esta función es la función principal.
+ * @function TEST
+ * @brief Esta función aplica pruebas.
  */
-int main(int argc, char* argv[]) {
+TEST(test1, positive){
 	// Declarar variables locales
+	int retorno = 0;
 	double x,y = 0;
 	string line;
 	double pt[] = {0,0};
 	vector<Point_2> puntos;
 	vector<string> etiquetas;
 
+	/*
 	// Revisar DEBUG flag
 	if(argc > 2){
 		if(string(argv[2]) == "DEBUG"){
@@ -32,33 +35,22 @@ int main(int argc, char* argv[]) {
 		cout << "\tError: \tSe necesita ingresar un archivo por línea de comando. \nFormato normal: \n\t./CascoConvexo <archivo>\nModo debug: \n\t./CascoConvexo <archivo> DEBUG\n" << endl;
 		exit(6);
 	}
-    
+	*/
+    /*
 	// Obtener archivo de la consola.
 	string CSV = argv[1];
 	if(DEBUG){
 		cout << "Archivo CSV indicado: " << CSV << endl;
 	}
+	*/
 
-	// Revisar existencia del archivo, y abrir si es válido.
-	archivoExiste(CSV,DEBUG);
-    ifstream archivo (CSV);
+	// Leer Archivo.
+	retorno = leerArchivo("../archivos/pruebaProfesor1.txt", &puntos, &etiquetas, DEBUG);
 	
-	// Leer archivo
-    while ( getline (archivo,line) ) {
-    	// Imprimir línea cuando se está depurando
-    	if(DEBUG){
-      		cout << "\nLínea: " << line << endl;
-      	}
-      	// Obtener punto
-      	getPoint(line,pt,DEBUG);
-      	// Subir puntos a vector
-      	puntos.push_back(Point_2(pt[0],pt[1]));
-		etiquetas.push_back("(" + line + ")");
-    }
-    
-    // Cerrar archivo
-    archivo.close();
-	
+    EXPECT_EQ(retorno, 1);
+
+
+	/*
 	// Crear vector basado en puntos
 	vector<std::size_t> indices(puntos.size()), out;
   	iota(indices.begin(), indices.end(),0);
@@ -103,8 +95,12 @@ int main(int argc, char* argv[]) {
 	// Ploteo no corre con CMAKE, pero se implementa para comprobar NO-FUNCIONAMIENTL
 	getPlot(cantcoordenadas, cor, coordenadaspoligono, str, 700,700);
 
-	// Fin de programa
-    return 0;
+	// Fin de programa*/
+}
+
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
 
 
