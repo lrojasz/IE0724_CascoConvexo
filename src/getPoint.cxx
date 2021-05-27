@@ -111,7 +111,8 @@ int leerArchivo(string file, vector <Point_2>* puntos, vector <string>* etiqueta
 	int retorno = 0;
 	string line;
 	double pt[] = {0,0};
-
+	int contador = 0;
+ 
 	// Revisar existencia del archivo, y abrir si es válido.
 	retorno = archivoExiste(file,DEBUG);
     
@@ -124,6 +125,9 @@ int leerArchivo(string file, vector <Point_2>* puntos, vector <string>* etiqueta
 
 	// Leer archivo
     while ( getline (archivo,line) ) {
+		// Se aumenta el contador por cada línea recorrida.
+		contador++;
+
     	// Imprimir línea cuando se está depurando
     	if(DEBUG){
       		cout << "\nLínea: " << line << endl;
@@ -139,7 +143,16 @@ int leerArchivo(string file, vector <Point_2>* puntos, vector <string>* etiqueta
       	(*puntos).push_back(Point_2(pt[0],pt[1]));
 		(*etiquetas).push_back("(" + line + ")");
     }
-    
+
+	// Si el contador es menor a 3, las líneas están correctas pero no son suficientes.
+	if (contador < 3){
+		if (DEBUG){
+			cout << "La cantidad de coordenadas es de : " << contador << endl;
+		}
+		return (-1);
+	}
+	
+
     // Cerrar archivo
     archivo.close();
 

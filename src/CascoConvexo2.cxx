@@ -24,15 +24,14 @@ int comprobarCasco(int cant, bool DEBUG) {
     if (DEBUG){
         cout << "Puntos generados de forma random: " << endl;
     }
-	for (int i = 0; i < cant; i++){
-		int randomNumX = rand() % 101 + (-100);
-		int randomNumY = rand() % 101 + (-100);
-		puntos.push_back(Point_2(randomNumX, randomNumY));
-
-        if (DEBUG){
-            cout << "Punto " << i << ": " << "(" << randomNumX << "," << randomNumY << ")" << endl;
-        }
-	}
+	 for (int i = 0; i < cant; i++){
+	 	int randomNumX = rand() % 101 + (-100);
+	 	int randomNumY = rand() % 101 + (-100);
+	 	puntos.push_back(Point_2(randomNumX, randomNumY));
+         if (DEBUG){
+             cout << "Punto " << i << ": " << "(" << randomNumX << "," << randomNumY << ")" << endl;
+         }
+	 }
 
 	// Crear vector basado en puntos
 	vector<std::size_t> indices(puntos.size()), out;
