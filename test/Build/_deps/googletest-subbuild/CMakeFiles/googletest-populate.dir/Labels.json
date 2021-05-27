@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build.rule"
+		},
+		{
+			"file" : "/home/jose543/Documentos/LaboProgramacion/Proyecto1/IE0724_CascoConvexo/test/Build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

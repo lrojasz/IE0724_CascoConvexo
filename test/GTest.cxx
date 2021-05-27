@@ -23,7 +23,6 @@ TEST(test1, positive){
 	double pt[] = {0,0};
 	vector<Point_2> puntos;
 	vector<string> etiquetas;
-
 	/*
 	// Revisar DEBUG flag
 	if(argc > 2){
@@ -46,8 +45,9 @@ TEST(test1, positive){
 
 	// Leer Archivo.
 	retorno = leerArchivo("../archivos/pruebaProfesor1.txt", &puntos, &etiquetas, DEBUG);
+	EXPECT_EQ(retorno, 1);
 	
-    EXPECT_EQ(retorno, 1);
+	
 
 
 	/*
