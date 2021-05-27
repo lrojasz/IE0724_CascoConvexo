@@ -4,7 +4,7 @@
 #include "../include/handleCSV.h"
 #include "../include/getPlot.h"
 #include "../include/editPlot.h"
-#include "../include/CascoConvexo.h"
+#include "../include/CascoConvexo2.h"
 #include "../build/ccConfig.h"
 #include "gtest/gtest.h"
 
@@ -96,6 +96,14 @@ TEST(test1, positive){
 	getPlot(cantcoordenadas, cor, coordenadaspoligono, str, 700,700);
 
 	// Fin de programa*/
+}
+// Prueba 2: En cada iteración se define una lista de puntos de tamaño aleatorio
+TEST(test2, positive){
+	// Declarar variables locales
+	int retorno = 0;
+	int cant = 5;
+	retorno = comprobarCasco(cant, DEBUG);
+	EXPECT_EQ(retorno, 1);
 }
 
 int main(int argc, char **argv) {
