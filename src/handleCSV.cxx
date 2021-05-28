@@ -5,19 +5,19 @@
  * @function archivoExiste
  * @brief Esta función determina la existencia de el archivo de prueba
  */
-void archivoExiste (const string& name, bool DEBUG){
+int archivoExiste (const string& name, bool DEBUG){
 	// Declarar buffer y determinar existencia
 	struct stat buffer;
 	bool existence = (stat (name.c_str(),&buffer) == 0);
 	// Si no existe, imprimir mensaje de error y terminar ejecución del programa.
 	if (!existence) {
 		cout << "\tError: \tEl archivo indicado no existe. Por favor escribir un archivo válido." << endl;
-		exit(5);
+		return (-1);
 	}
 	else if (DEBUG){
 		cout << "Archivo encontrado, iniciando operaciones de lectura." << endl;
 	}
-	return;
+	return 1;
 }
 
 /*
